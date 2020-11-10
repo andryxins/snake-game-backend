@@ -1,0 +1,30 @@
+{
+  "name": "snake-game-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.6",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andryxins/snake-game-backend.git"
+  },
+  "author": "Andrew Khairetdinov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andryxins/snake-game-backend/issues"
+  },
+  "homepage": "https://github.com/andryxins/snake-game-backend#readme"
+}
