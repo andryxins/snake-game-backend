@@ -36,6 +36,24 @@ const checkIsLoginUnique = async (req, res, next) => {
   }
 };
 
+const checkIsUserExist = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(id);
+
+    if (user) {
+      return res.status(200).json({ isExist: true, message: 'User is exist' });
+    } else {
+      return res
+        .status(200)
+        .json({ isExist: false, message: "User doesn't exist" });
+    }
+  } catch (e) {
+    return res.status(500).json({ message: 'Internal Error' });
+  }
+};
+
 const validateNewUser = async (req, res, next) => {
   const shema = Joi.object({
     login: Joi.string().min(3).max(12).required(),
@@ -120,4 +138,5 @@ module.exports = {
   validateNewUser,
   validateResault,
   identifyUserWithToken,
+  checkIsUserExist,
 };

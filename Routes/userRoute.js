@@ -7,11 +7,16 @@ const {
   identifyUserWithToken,
   checkIsLoginUnique,
   validateNewUser,
+  checkIsUserExist,
 } = require('../Controllers/userController');
 
 const router = Router();
 
 router.get('/', getAllUsers);
+
+router.post('/new-user', validateNewUser, checkIsLoginUnique, addNewUser);
+
+router.get('/:id', checkIsUserExist);
 
 router.post(
   '/update-resault',
@@ -19,7 +24,5 @@ router.post(
   validateResault,
   updateUser
 );
-
-router.post('/new-user', validateNewUser, checkIsLoginUnique, addNewUser);
 
 module.exports = router;
