@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(
-  morgan(':method :url :status :res[content-length] - :response-time ms'),
+  morgan(':method :url :status :res[content-length] - :response-time ms')
 );
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://andryxins.github.io/' }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/users', userRoute);
@@ -28,9 +28,9 @@ mongoose
   .then(() =>
     app.listen(PORT, () => {
       console.log('Server started listening on port', PORT);
-    }),
+    })
   )
-  .catch(e => {
+  .catch((e) => {
     console.log(e);
     process.exit(1);
   });
